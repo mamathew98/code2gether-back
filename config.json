@@ -1,0 +1,4 @@
+﻿{
+    "connectionString": "mongodb://localhost/code2gether",
+    "secret": "code2gether"
+}
