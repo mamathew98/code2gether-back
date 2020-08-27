@@ -1,0 +1,4 @@
+﻿{
+    "connectionString": "mongodb+srv://code2gether:code2gether@code2gether.oiokp.mongodb.net/code2gether?retryWrites=true&w=majority",
+    "secret": "code2gether"
+}
