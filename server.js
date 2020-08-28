@@ -71,15 +71,12 @@ io.on("connection", async (socket) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
-
+app.use(cors({origin: "*",
+  allowedHeaders:['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']}));
 // use JWT auth to secure the api
 app.use(jwt());
 
 // api routes
-app.use(cors({origin: "*",
-  allowedHeaders:['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']}));
-
 app.use("/users", require("./users/users.controller"));
 app.use("/projects", require("./documents/docment.controller"))
 
