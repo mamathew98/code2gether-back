@@ -8,6 +8,8 @@ const errorHandler = require("_helpers/error-handler");
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 
+io.origins('*:*');
+
 const documentService = require("./documents/document.service.js");
 const userService = require("./users/user.service");
 
@@ -75,6 +77,9 @@ app.use(cors());
 app.use(jwt());
 
 // api routes
+app.use(cors({origin: "*",
+  allowedHeaders:['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']}));
+
 app.use("/users", require("./users/users.controller"));
 app.use("/projects", require("./documents/docment.controller"))
 
