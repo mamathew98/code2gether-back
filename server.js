@@ -144,18 +144,19 @@ io.on("connection", async (socket) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "*",
-    allowedHeaders: [
-      "Origin",
-      "X-Requested-With",
-      "Content-Type",
-      "Accept",
-      "Authorization",
-    ],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     allowedHeaders: [
+//       "Origin",
+//       "X-Requested-With",
+//       "Content-Type",
+//       "Accept",
+//       "Authorization",
+//     ],
+//   })
+// );
+app.user(cors())
 // use JWT auth to secure the api
 app.use(jwt());
 
