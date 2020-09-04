@@ -84,6 +84,12 @@ io.on("connection", async (socket) => {
     previousId = currentId;
   };
 
+  socket.on("leave", async (data) => {
+    await deleteCursor(data.username, data.docID);
+    io.in(data.docID).emit("cursors", cursors[data.docID]);
+    io.in(data.docID).emit("disconnect", data.username)
+  })
+  
   socket.on("getDoc", async (data) => {
     // console.log(documents);
     fetchedDoc = await documentService.getDocById(data.docId);
