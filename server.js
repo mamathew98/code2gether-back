@@ -8,8 +8,6 @@ const errorHandler = require("_helpers/error-handler");
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 
-const randColor = require('./cursorColors');
-
 io.origins("*:*");
 
 const documentService = require("./documents/document.service.js");
