@@ -89,7 +89,7 @@ io.on("connection", async (socket) => {
     io.in(data.docID).emit("cursors", cursors[data.docID]);
     io.in(data.docID).emit("disconnect", data.username)
   })
-  
+  //hey
   socket.on("getDoc", async (data) => {
     // console.log(documents);
     fetchedDoc = await documentService.getDocById(data.docId);
