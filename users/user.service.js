@@ -28,12 +28,13 @@ async function authenticate({ username, password }) {
 
 async function addProject(username, pid){
     const user = await User.findOne({ username: username });
-    if(!user.projects.includes(pid)){
-        await user.projects.push(pid);
-    }else {
-        throw new Error('Already Exists')
+    if(user){
+        if(!user.projects.includes(pid)){
+            await user.projects.push(pid);
+        }else {
+            throw new Error('Already Exists')
+        }
     }
-
     await user.save();
 }
 
